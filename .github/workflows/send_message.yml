@@ -1,9 +1,7 @@
 name: Send Telegram Messages
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 * * * *"  # Runs every hour
+  workflow_dispatch:  # Hanya boleh dijalankan secara manual
 
 jobs:
   sendMessages:
