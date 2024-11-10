@@ -5,10 +5,10 @@ import os
 # Dapatkan API ID dan API Hash daripada GitHub Secrets
 api_id = int(os.getenv("API_ID"))
 api_hash = os.getenv("API_HASH")
-session_name = os.getenv("SESSION_NAME", "my_session")  # Nama fail sesi yang digunakan, default ke 'my_session'
+session_name = os.getenv("SESSION_NAME")  # Nama fail sesi yang digunakan
 
 # ID grup dan mesej yang ingin dihantar
-group_id = -10022200241778  # Pastikan ini adalah ID kumpulan yang betul
+group_id = -1002200241778  # ID kumpulan yang diberikan
 message = "Maaf"
 
 # Buat klien Telegram
@@ -17,19 +17,18 @@ client = TelegramClient(session_name, api_id, api_hash)
 # Fungsi untuk menghantar mesej beberapa kali
 async def send_message_repeatedly():
     await client.start()
-    print("Memulakan sesi...")
     try:
         # Cuba untuk mengakses kumpulan terlebih dahulu
-        entity = await client.get_input_entity(group_id)
-        print(f"Berjaya mengakses kumpulan: {entity}")
+        entity = await client.get_entity(group_id)
+        print(f"Berjaya mengakses kumpulan: {entity.title}")
     except errors.ChatAdminRequiredError:
         print("Akses ke kumpulan ini tidak dibenarkan.")
         return
     except ValueError:
         print("ID kumpulan tidak sah atau anda tidak mempunyai akses.")
         return
-    except IndexError:
-        print("Tidak dapat mencari entiti untuk ID kumpulan yang diberikan.")
+    except Exception as e:
+        print(f"Ralat semasa cuba akses kumpulan: {e}")
         return
 
     # Menghantar mesej jika berjaya mendapat akses ke kumpulan
