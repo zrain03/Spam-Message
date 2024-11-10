@@ -9,7 +9,8 @@ session_name = os.getenv("SESSION_NAME", "my_session")  # Nama fail sesi yang di
 
 # ID kumpulan dan mesej yang ingin dihantar
 group_id = -1002200241778  # ID kumpulan "Testing for MP CHAT"
-message = "maaf"
+message = """اَللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ
+Allahumma salli 'ala Sayyidina Muhammad wa 'ala ali Sayyidina Muhammad"""
 
 # Buat klien Telegram
 client = TelegramClient(session_name, api_id, api_hash)
@@ -31,7 +32,7 @@ async def send_message_repeatedly():
     for i in range(25):
         await client.send_message(group_id, message)
         print(f"Mesej ke-{i+1} telah dihantar!")
-        await asyncio.sleep(3)  # Tunggu 1 saat antara mesej
+        await asyncio.sleep(5)  # Tunggu 5 saat antara mesej
 
 # Jalankan fungsi untuk menghantar mesej
 with client:
