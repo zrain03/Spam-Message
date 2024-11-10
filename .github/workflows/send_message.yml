@@ -1,9 +1,9 @@
 name: Send Telegram Messages
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Untuk membolehkan anda trigger manual
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 * * * *"  # Menjadualkan untuk dihantar setiap jam
 
 jobs:
   sendMessages:
@@ -23,9 +23,9 @@ jobs:
 
       - name: Decode and save session file
         env:
-          SESSION_BASE64: ${{ secrets.SESSION_BASE64 }}
+          SESSION_BASE64: ${{ secrets.SESSION_BASE64 }}  # Pastikan SESSION_BASE64 dimasukkan di GitHub Secrets
         run: |
-          echo "$SESSION_BASE64" | base64 -d > my_session.session
+          echo "$SESSION_BASE64" | base64 --decode > my_session.session
 
       - name: Run Python script
         env:
