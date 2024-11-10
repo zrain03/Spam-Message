@@ -9,8 +9,7 @@ session_name = os.getenv("SESSION_NAME", "my_session")  # Nama fail sesi yang di
 
 # ID kumpulan dan mesej yang ingin dihantar
 group_id = -1002200241778  # ID kumpulan "Testing for MP CHAT"
-message = "اَللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ
-Allahumma salli 'ala Sayyidina Muhammad wa 'ala ali Sayyidina Muhammad"
+message = "maaf"
 
 # Buat klien Telegram
 client = TelegramClient(session_name, api_id, api_hash)
