@@ -32,7 +32,7 @@ async def send_message_repeatedly():
         return
 
     # Menghantar mesej jika berjaya mendapat akses ke kumpulan
-    for i in range(10000):
+    for i in range(100):
         await client.send_message(group_id, message)
         print(f"Mesej ke-{i+1} telah dihantar!")
         await asyncio.sleep(1)
