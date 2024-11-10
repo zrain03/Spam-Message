@@ -8,7 +8,7 @@ api_hash = os.getenv("API_HASH")
 session_name = os.getenv("SESSION_NAME", "my_session")  # Nama fail sesi yang digunakan
 
 # ID kumpulan dan mesej yang ingin dihantar
-group_id = -1002200241778  # ID kumpulan "Testing for MP CHAT"
+group_ids = [-1002200241778, -1002288720559]  # ID kumpulan "Testing for MP CHAT" dan satu lagi kumpulan
 message = """اَللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ
 Allahumma salli 'ala Sayyidina Muhammad wa 'ala ali Sayyidina Muhammad"""
 
@@ -20,7 +20,8 @@ async def send_message_repeatedly():
     await client.start()  # Log masuk jika belum log masuk
     try:
         # Cuba untuk mengakses kumpulan
-        await client.get_entity(group_id)
+        for group_id in group_ids:
+            await client.get_entity(group_id)
     except errors.ChatAdminRequiredError:
         print("Akses ke kumpulan ini tidak dibenarkan.")
         return
@@ -28,11 +29,12 @@ async def send_message_repeatedly():
         print("ID kumpulan tidak sah atau anda tidak mempunyai akses.")
         return
 
-    # Hantar mesej 100 kali
+    # Hantar mesej kepada setiap kumpulan
     for i in range(24):
-        await client.send_message(group_id, message)
-        print(f"Mesej ke-{i+1} telah dihantar!")
-        await asyncio.sleep(3600)  # Tunggu 2 saat antara mesej
+        for group_id in group_ids:
+            await client.send_message(group_id, message)
+            print(f"Mesej ke-{i+1} telah dihantar ke kumpulan {group_id}!")
+        await asyncio.sleep(3)  # Tunggu 1 jam antara mesej
 
 # Jalankan fungsi untuk menghantar mesej
 with client:
