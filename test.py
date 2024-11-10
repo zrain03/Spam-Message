@@ -1,12 +1,11 @@
 from telethon import TelegramClient
 import asyncio
+import os
 
-# API ID dan API Hash
-api_id = 20240995
-api_hash = "a6cb8eb76c7e91215e483416a29dc0e0"
-
-# Nama sesi sederhana
-session_name = 'my_session'
+# Mengambil API ID, API Hash, dan sesi dari environment variables
+api_id = int(os.getenv("API_ID"))
+api_hash = os.getenv("API_HASH")
+session_name = os.getenv("SESSION_NAME")
 
 # ID grup
 group_id = -10022200241778
@@ -20,7 +19,7 @@ client = TelegramClient(session_name, api_id, api_hash)
 # Fungsi untuk mengirim pesan beberapa kali dengan jeda
 async def send_message_repeatedly():
     await client.start()
-    for i in range(10000):  # Contoh mengirim 10000 kali untuk keamanan
+    for i in range(10000):
         await client.send_message(group_id, message)
         print(f"Mesej ke-{i+1} telah dihantar!")
         await asyncio.sleep(1)  # Jeda 1 detik antara setiap pesan
