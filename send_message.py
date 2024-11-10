@@ -2,7 +2,7 @@ from telethon import TelegramClient, errors
 import asyncio
 import os
 
-# API ID dan API Hash daripada GitHub Secrets
+# Dapatkan API ID dan API Hash daripada GitHub Secrets
 api_id = int(os.getenv("API_ID"))
 api_hash = os.getenv("API_HASH")
 session_name = os.getenv("SESSION_NAME", "my_session")  # Nama fail sesi yang digunakan, default ke 'my_session'
@@ -17,10 +17,11 @@ client = TelegramClient(session_name, api_id, api_hash)
 # Fungsi untuk menghantar mesej beberapa kali
 async def send_message_repeatedly():
     await client.start()
+    print("Memulakan sesi...")
     try:
         # Cuba untuk mengakses kumpulan terlebih dahulu
-        entity = await client.get_entity(group_id)
-        print(f"Berjaya mengakses kumpulan: {entity.title}")
+        entity = await client.get_input_entity(group_id)
+        print(f"Berjaya mengakses kumpulan: {entity}")
     except errors.ChatAdminRequiredError:
         print("Akses ke kumpulan ini tidak dibenarkan.")
         return
