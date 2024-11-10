@@ -33,11 +33,11 @@ async def send_message_repeatedly():
         return
 
     # Hantar mesej kepada setiap kumpulan
-    for i in range(3):
+    for i in range(168):
         for group_id in group_ids:
             await client.send_message(group_id, message)
             print(f"Mesej ke-{i+1} telah dihantar ke kumpulan {group_id}!")
-        await asyncio.sleep(3)  # Tunggu 3 saat antara mesej
+        await asyncio.sleep(3600)  # Tunggu 3600 saat / 1 jam antara mesej
 
 # Jalankan fungsi untuk menghantar mesej
 with client:
