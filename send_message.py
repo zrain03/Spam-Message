@@ -32,7 +32,7 @@ async def send_message_repeatedly():
     for i in range(25):
         await client.send_message(group_id, message)
         print(f"Mesej ke-{i+1} telah dihantar!")
-        await asyncio.sleep(5)  # Tunggu 5 saat antara mesej
+        await asyncio.sleep(2)  # Tunggu 2 saat antara mesej
 
 # Jalankan fungsi untuk menghantar mesej
 with client:
