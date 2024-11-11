@@ -1,5 +1,4 @@
 from telethon import TelegramClient, errors
-import asyncio
 import os
 
 # Get API_ID, API_HASH, and session name from environment variables
@@ -18,24 +17,17 @@ message = "https://t.me/mpgoviralgrowthtools (admin share 3 kali MP goviral seti
 # Initialize Telegram client
 client = TelegramClient(session_name, api_id, api_hash)
 
-# Function to send message repeatedly for up to 6 hours
-async def send_message_repeatedly():
+async def send_messages():
     await client.start()  # Log in if not already logged in
-
-    # Loop to post every 30 minutes, stopping after 12 messages (6 hours)
-    for i in range(12):
-        for group_id in group_ids:
-            try:
-                await client.send_message(group_id, message)
-                print(f"Message sent to group {group_id} (Round {i+1})")
-            except errors.ChatAdminRequiredError:
-                print(f"Access to group {group_id} is restricted.")
-            except ValueError:
-                print(f"Invalid group ID {group_id} or access denied.")
-        
-        # Wait 30 minutes before sending the next message
-        await asyncio.sleep(1800)
+    for group_id in group_ids:
+        try:
+            await client.send_message(group_id, message)
+            print(f"Message sent to group {group_id}")
+        except errors.ChatAdminRequiredError:
+            print(f"Access to group {group_id} is restricted.")
+        except ValueError:
+            print(f"Invalid group ID {group_id} or access denied.")
 
 # Run the function to send messages
 with client:
-    client.loop.run_until_complete(send_message_repeatedly())
+    client.loop.run_until_complete(send_messages())
