@@ -1,7 +1,9 @@
 name: Send Telegram Messages
 
 on:
-  workflow_dispatch:  # Hanya boleh dijalankan secara manual
+  schedule:
+    - cron: '*/6 * * * *'  # Run every 6 hours
+  workflow_dispatch:  # Allows manual trigger if needed
 
 jobs:
   sendMessages:
@@ -29,5 +31,5 @@ jobs:
         env:
           API_ID: ${{ secrets.API_ID }}
           API_HASH: ${{ secrets.API_HASH }}
-          SESSION_NAME: my_session  # Nama fail sesi
+          SESSION_NAME: my_session
         run: python send_message.py
