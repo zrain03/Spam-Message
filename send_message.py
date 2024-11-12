@@ -17,7 +17,7 @@ Link Group: https://t.me/+tjqzu74AnN4yMTA9
 
 📌 0.02 sen/Acc
 📌 Join & Send SS
-📌 Claim To Pm @nurazylah
+📌 Claim To Pm @nurazylahh
 ❌ Tolong Jangan Left Bila Dah Join Group"""
 
 
