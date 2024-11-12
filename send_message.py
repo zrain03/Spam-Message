@@ -12,7 +12,14 @@ group_ids = [-1002200241778, -1002288720559, -1001161916810, -1001897381179, -10
              -1001338686972, -1002080497857, -1001194015232, -1002080593272, -1001473865431, 
              -1001778610644, -1002065798504, -1002329458039, -1002379900836, -1001192339217, 
              -1001875616025, -1001938068566, -1001626914578, -1002174886965, -1001965994500]
-message = "https://t.me/mpgoviralgrowthtools (admin share 3 kali MP goviral setiap hari)"
+message = """New Task Tele By @nurazylahh
+Link Group: https://t.me/+tjqzu74AnN4yMTA9
+
+📌 0.02 sen/Acc
+📌 Join & Send SS
+📌 Claim To Pm @nurazylah
+❌ Tolong Jangan Left Bila Dah Join Group"""
+
 
 # Initialize Telegram client
 client = TelegramClient(session_name, api_id, api_hash)
