@@ -14,7 +14,7 @@ group_ids = [
     -1001778610644, -1002065798504, -1002329458039, -1002379900836, -1001192339217,
     -1001875616025, -1001938068566, -1001626914578, -1002174886965, -1001965994500
 ]
-message = "https://t.me/mpgoviralgrowthtools"
+message = "https://t.me/mprekonise"
 
 # Initialize Telegram client
 client = TelegramClient(session_name, api_id, api_hash)
