@@ -14,13 +14,7 @@ group_ids = [
     -1001778610644, -1002065798504, -1002329458039, -1002379900836, -1001192339217,
     -1001875616025, -1001938068566, -1001626914578, -1002174886965, -1001965994500
 ]
-message = """New Task Tele By @nurazylahh
-Link Group: https://t.me/+tjqzu74AnN4yMTA9
-
-📌 0.02 sen/Acc
-📌 Join & Send SS
-📌 Claim To Pm @nurazylahh
-❌ Tolong Jangan Left Bila Dah Join Group"""
+message = "https://t.me/mpgoviralgrowthtools"
 
 # Initialize Telegram client
 client = TelegramClient(session_name, api_id, api_hash)
