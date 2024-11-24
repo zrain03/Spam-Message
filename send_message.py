@@ -14,21 +14,7 @@ group_ids = [
     -1001778610644, -1002065798504, -1002329458039, -1002379900836, -1001192339217,
     -1001875616025, -1001938068566, -1001626914578, -1002174886965, -1001965994500
 ]
-message = """
-Task join 
-0.02sen / peracc
-Ss send kat @milo_aisy
-https://t.me/+kh7yYiHwgu5mMjFl
-
-Task react sahaja
-
-0.02sen /peracc
-https://t.me/c/2068612142/2413
-https://t.me/+FePUm0hOJw1iODk1
-
-React "🔥" 
-SS send Claim mp 0.02sen @milo_aisy
-"""
+message = "https://t.me/mpdangame"
 
 # Initialize Telegram client
 client = TelegramClient(session_name, api_id, api_hash)
